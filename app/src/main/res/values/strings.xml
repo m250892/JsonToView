@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DynamicViewCreation</string>
+    <string name="text">Creation</string>
 </resources>

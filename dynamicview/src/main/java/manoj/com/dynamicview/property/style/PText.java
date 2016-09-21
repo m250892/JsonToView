@@ -1,16 +1,18 @@
 package manoj.com.dynamicview.property.style;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.List;
 
-import manoj.com.dynamicview.property.PropertyDataType;
+import manoj.com.dynamicview.Utils;
+import manoj.com.dynamicview.property.PropertyValueType;
 
-import static manoj.com.dynamicview.property.PropertyDataType.REFERENCE;
-import static manoj.com.dynamicview.property.PropertyDataType.STRING;
+import static manoj.com.dynamicview.property.PropertyValueType.REFERENCE;
+import static manoj.com.dynamicview.property.PropertyValueType.STRING;
 
 /**
  * Created by manoj on 16/09/16.
@@ -31,22 +33,33 @@ public class PText extends StyleProperty {
         return view instanceof TextView;
     }
 
-    public String getValue(Context context) {
+    private String getValue(Context context) {
+        String result = null;
         switch (getType()) {
             case STRING:
-                return getData();
+                result = getData();
+                break;
             case REFERENCE:
-                //TODO: need to implement this feature
-                return getData();
+                int id = getStringResId(context);
+                try {
+                    result = context.getString(id);
+                } catch (Resources.NotFoundException e) {
+                    e.printStackTrace();
+                }
         }
-        return null;
+        return result;
     }
 
-    public PropertyDataType getType() {
-        return PropertyDataType.getDataType(getPropertyTypes(), getData());
+    private int getStringResId(Context context) {
+        String data = Utils.getDataWithoutPrefix(REFERENCE, getData());
+        return Utils.getStringId(context, data);
     }
 
-    public List<PropertyDataType> getPropertyTypes() {
+    private PropertyValueType getType() {
+        return PropertyValueType.getDataType(getPropertyTypes(), getData());
+    }
+
+    private List<PropertyValueType> getPropertyTypes() {
         return Arrays.asList(REFERENCE, STRING);
     }
 }

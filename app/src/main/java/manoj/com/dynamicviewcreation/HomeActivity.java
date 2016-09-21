@@ -11,9 +11,10 @@ import org.json.JSONObject;
 
 import manoj.com.dynamicview.ConverterJsonToWidget;
 import manoj.com.dynamicview.ConverterWidgetToView;
+import manoj.com.dynamicview.IOnClickListener;
 import manoj.com.dynamicview.widget.Widget;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements IOnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,9 @@ public class HomeActivity extends AppCompatActivity {
         try {
             Widget widget = ConverterJsonToWidget.parseWidgetJsonObject(jsonObject);
             if (widget != null) {
+                widget.registerOnClickListener(this);
                 Log.d("manoj", "Json to Widget Data :" + widget.toString());
-                View view = ConverterWidgetToView.buildView(this, widget, null);
+                View view = ConverterWidgetToView.buildView(this, widget, viewContainer);
                 if (view != null) {
                     viewContainer.addView(view);
                 }
@@ -44,5 +46,10 @@ public class HomeActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onDynamicViewClick(View view, String value) {
+        Log.d("manoj", "Dynamic View Clicked : " + value);
     }
 }

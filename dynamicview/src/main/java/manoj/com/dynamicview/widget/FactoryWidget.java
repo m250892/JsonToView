@@ -8,8 +8,16 @@ public class FactoryWidget {
         switch (value.toLowerCase()) {
             case "linearlayout":
                 return new WLinearLayout();
+            case "relativelayout":
+                return new WRelativeLayout();
             case "textview":
                 return new WTextView();
+            case "imageview":
+                return new WImageView();
+            case "button":
+                return new WButton();
+            case "scrollview":
+                return new PScrollView();
         }
         return null;
     }

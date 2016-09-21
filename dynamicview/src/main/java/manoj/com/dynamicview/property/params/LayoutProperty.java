@@ -3,6 +3,8 @@ package manoj.com.dynamicview.property.params;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.HashMap;
+
 import manoj.com.dynamicview.property.Property;
 
 /**
@@ -15,9 +17,9 @@ public abstract class LayoutProperty extends Property {
     }
 
     @Override
-    public void addLayoutProperty(ViewGroup.LayoutParams params) {
+    public void addLayoutProperty(ViewGroup.LayoutParams params, HashMap<String, Integer> ids) {
         if (isParamsTypeValid(params)) {
-            addRule(params);
+            addRule(params, ids);
         }
     }
 
@@ -26,7 +28,7 @@ public abstract class LayoutProperty extends Property {
 
     }
 
-    protected abstract void addRule(ViewGroup.LayoutParams params);
+    protected abstract void addRule(ViewGroup.LayoutParams params, HashMap<String, Integer> ids);
 
     protected abstract boolean isParamsTypeValid(ViewGroup.LayoutParams params);
 }

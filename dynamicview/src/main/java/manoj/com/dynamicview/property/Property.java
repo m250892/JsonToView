@@ -3,6 +3,8 @@ package manoj.com.dynamicview.property;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.HashMap;
+
 /**
  * Created by manoj on 16/09/16.
  */
@@ -20,5 +22,5 @@ public abstract class Property {
 
     public abstract void applyStyleProperty(View view);
 
-    public abstract void addLayoutProperty(ViewGroup.LayoutParams params);
+    public abstract void addLayoutProperty(ViewGroup.LayoutParams params, HashMap<String, Integer> ids);
 }

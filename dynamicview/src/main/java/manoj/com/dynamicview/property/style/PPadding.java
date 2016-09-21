@@ -1,9 +1,8 @@
-package manoj.com.dynamicview.property.params;
+package manoj.com.dynamicview.property.style;
 
 import android.view.View;
 
-import manoj.com.dynamicview.property.Utils;
-import manoj.com.dynamicview.property.style.StyleProperty;
+import manoj.com.dynamicview.Utils;
 
 /**
  * Created by manoj on 16/09/16.

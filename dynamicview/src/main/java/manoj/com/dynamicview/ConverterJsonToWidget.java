@@ -19,22 +19,19 @@ import manoj.com.dynamicview.widget.Widget;
 public class ConverterJsonToWidget {
 
     public static Widget parseWidgetJsonObject(JSONObject jsonObject) throws JSONException {
-        if (jsonObject == null) {
+        String widgetKey = jsonObject.getString("widget");
+        Widget widget = FactoryWidget.getWidget(widgetKey);
+        if (widget == null) {
             return null;
         }
 
-        String widgetKey = jsonObject.getString("widget");
-        if (widgetKey == null) {
-            return null;
-        }
-        Widget widget = FactoryWidget.getWidget(widgetKey);
         Iterator<?> keys = jsonObject.keys();
         while (keys.hasNext()) {
             String key = (String) keys.next();
             if (key != null) {
                 if (key.equals("widget")) {
                     continue;
-                } else if (key.equals("childern")) {
+                } else if (key.equals("children")) {
                     JSONArray jsonArray = jsonObject.getJSONArray(key);
                     List<Widget> childs = parseWidgetJsonArray(jsonArray);
                     widget.addChildViews(childs);

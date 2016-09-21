@@ -3,12 +3,13 @@ package manoj.com.dynamicview.property.params;
 import android.view.ViewGroup;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
-import manoj.com.dynamicview.property.PropertyDataType;
+import manoj.com.dynamicview.property.PropertyValueType;
 
-import static manoj.com.dynamicview.property.PropertyDataType.MATCH_PARENT;
-import static manoj.com.dynamicview.property.PropertyDataType.WRAP_CONTENT;
+import static manoj.com.dynamicview.property.PropertyValueType.MATCH_PARENT;
+import static manoj.com.dynamicview.property.PropertyValueType.WRAP_CONTENT;
 
 /**
  * Created by manoj on 19/09/16.
@@ -20,7 +21,7 @@ public class PLayoutHeight extends LayoutProperty {
     }
 
     @Override
-    protected void addRule(ViewGroup.LayoutParams params) {
+    protected void addRule(ViewGroup.LayoutParams params, HashMap<String, Integer> ids) {
         switch (getType()) {
             case MATCH_PARENT:
                 params.height = params.MATCH_PARENT;
@@ -36,11 +37,11 @@ public class PLayoutHeight extends LayoutProperty {
         return params != null;
     }
 
-    public PropertyDataType getType() {
-        return PropertyDataType.getDataType(getPropertyTypes(), getData());
+    public PropertyValueType getType() {
+        return PropertyValueType.getDataType(getPropertyTypes(), getData());
     }
 
-    public List<PropertyDataType> getPropertyTypes() {
+    public List<PropertyValueType> getPropertyTypes() {
         return Arrays.asList(MATCH_PARENT, WRAP_CONTENT);
     }
 }

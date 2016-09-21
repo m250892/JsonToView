@@ -6,10 +6,10 @@ import android.widget.LinearLayout;
 import java.util.Arrays;
 import java.util.List;
 
-import manoj.com.dynamicview.property.PropertyDataType;
+import manoj.com.dynamicview.property.PropertyValueType;
 
-import static manoj.com.dynamicview.property.PropertyDataType.HORIZONTAL;
-import static manoj.com.dynamicview.property.PropertyDataType.VERTICAL;
+import static manoj.com.dynamicview.property.PropertyValueType.HORIZONTAL;
+import static manoj.com.dynamicview.property.PropertyValueType.VERTICAL;
 
 /**
  * Created by manoj on 20/09/16.
@@ -33,11 +33,11 @@ public class POrientation extends StyleProperty {
     }
 
 
-    public PropertyDataType getType() {
-        return PropertyDataType.getDataType(getPropertyTypes(), getData());
+    public PropertyValueType getType() {
+        return PropertyValueType.getDataType(getPropertyTypes(), getData());
     }
 
-    public List<PropertyDataType> getPropertyTypes() {
+    public List<PropertyValueType> getPropertyTypes() {
         return Arrays.asList(VERTICAL, HORIZONTAL);
     }
 

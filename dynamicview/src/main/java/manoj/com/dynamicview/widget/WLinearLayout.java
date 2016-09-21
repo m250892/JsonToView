@@ -13,4 +13,5 @@ public class WLinearLayout extends Widget {
     public View createView(Context context) {
         return new LinearLayout(context);
     }
+
 }
