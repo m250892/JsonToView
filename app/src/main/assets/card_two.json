@@ -1,0 +1,25 @@
+{
+  "widget": "LinearLayout",
+  "layout_width": "match_parent",
+  "layout_height": "wrap_content",
+  "background": "#E7E7E7",
+  "padding": "16dp",
+  "orientation": "vertical",
+  "children": [
+    {
+      "widget": "TextView",
+      "layout_width": "wrap_content",
+      "layout_height": "wrap_content",
+      "textcolor": "#000000",
+      "text": "Title Text View"
+    },
+    {
+      "widget": "TextView",
+      "layout_width": "wrap_content",
+      "layout_height": "wrap_content",
+      "padding_top": "8dp",
+      "textcolor": "#515151",
+      "text": "Message detail first line\ndetail second line"
+    }
+  ]
+}

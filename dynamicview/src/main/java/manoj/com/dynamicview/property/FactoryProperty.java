@@ -64,13 +64,13 @@ public class FactoryProperty {
                 return new PLayoutHeight(value);
             case "layout_margin":
                 return new PLMargin(value);
-            case "layout_marginLeft":
+            case "layout_marginleft":
                 return new PLMarginLeft(value);
-            case "layout_marginTop":
+            case "layout_margintop":
                 return new PLMarginTop(value);
-            case "layout_marginRight":
+            case "layout_marginright":
                 return new PLMarginRight(value);
-            case "layout_marginBottom":
+            case "layout_marginbottom":
                 return new PLMarginBottom(value);
 
 

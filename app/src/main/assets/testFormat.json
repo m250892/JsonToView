@@ -70,8 +70,8 @@
               "layout_width": "wrap_content",
               "layout_height": "wrap_content",
               "layout_centerInParent": "true",
-              "text": "RelativeBtn second",
-              "onclick": "call google.com"
+              "text": "Start Chat Activity",
+              "onclick": "open chat activity"
             }
           ]
         }

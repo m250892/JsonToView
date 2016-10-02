@@ -1,5 +1,6 @@
 package manoj.com.dynamicviewcreation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +14,7 @@ import manoj.com.dynamicview.ConverterJsonToWidget;
 import manoj.com.dynamicview.ConverterWidgetToView;
 import manoj.com.dynamicview.IOnClickListener;
 import manoj.com.dynamicview.widget.Widget;
+import manoj.com.dynamicviewcreation.chat.ChatActivity;
 
 public class HomeActivity extends AppCompatActivity implements IOnClickListener {
 
@@ -22,6 +24,13 @@ public class HomeActivity extends AppCompatActivity implements IOnClickListener 
         setContentView(R.layout.activity_home);
         FrameLayout viewContainer = (FrameLayout) findViewById(R.id.container);
         addDynamicViewInContainer(viewContainer);
+
+        startChatActivity();
+    }
+
+    private void startChatActivity() {
+        Intent intent = new Intent(this, ChatActivity.class);
+        startActivity(intent);
     }
 
     private void addDynamicViewInContainer(FrameLayout viewContainer) {
@@ -51,5 +60,6 @@ public class HomeActivity extends AppCompatActivity implements IOnClickListener 
     @Override
     public void onDynamicViewClick(View view, String value) {
         Log.d("manoj", "Dynamic View Clicked : " + value);
+        startChatActivity();
     }
 }
